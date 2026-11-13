@@ -1,0 +1,32 @@
+closure 是一个命令行辅助工具。从 Plan Alluvial 衍伸而来。
+
+当某个目录下存在一个配置文件，或者配置文件目录时，会自动构成应用闭包完成调用。
+
+## 基本用法
+
+`echo` 命令在 linux 下可以输出后面跟随的字符串，比如：
+
+```sh
+$ echo "hello world"
+> hello world
+```
+
+假设当前文件夹下存在一个文件名为 `.echo`，本工具可以自动链接应用完成调用如：
+
+```sh
+$ ls -a
+> .echo
+
+$ cat .echo
+> hello world
+
+$ closure .echo
+> hello world
+```
+
+## 注意点
+
+1. `closure` 不会处理非 `.` 开头的文件和文件夹。
+2. 如果找不到对应的应用，`closure` 不会做任何事情。
+3. `closure` 的基本原理是把配置文件中的内容拼凑为命令行参数，然后执行。
+4. 此项目目前依赖 overlay 工具：https://github.com/Changes729/alluvial_fuse
